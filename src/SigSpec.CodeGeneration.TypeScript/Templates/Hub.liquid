@@ -36,3 +36,9 @@ export interface I{{ Name }}HubCallbacks {
     {{ operation.MethodName }}({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if forloop.last == false %}, {% endif %}{% endfor %}): void;
 {% endfor -%}
 }
+
+export class {{ Name }}HubCallbacks {
+{% for operation in Callbacks -%}
+    {{ operation.MethodName }} = ({% for parameter in operation.Parameters %}{{ parameter.Name }}: {{ parameter.Type }}{% if forloop.last == false %}, {% endif %}{% endfor %}) => {/**/};
+{% endfor -%}
+}
